@@ -1,3 +1,6 @@
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 const images = [
     {
       preview:
@@ -73,30 +76,33 @@ function createGalleryItem({ preview, original, description }) {
 
   const link = document.createElement('a');
   link.classList.add('gallery-link');
-  link.href="javascript:void(0);"
+  link.href = original;
 
   const image = document.createElement('img');
   image.classList.add('gallery-image');
   image.src = preview;
   image.alt = description;
-  image.dataset.source = original;
+ 
 
-  galleryItem.appendChild(image);
+  link.appendChild(image);
+  galleryItem.appendChild(link);
 
   return galleryItem;
 }
+function initializeLightbox() {
+    const lightbox = new SimpleLightbox(".gallery a", { captionsData: "alt", captionDelay: 250 });
+}
 
-function openModal(source, description) {
-  const instance = basicLightbox.create(`
-        <img src="${source}" alt="${description}" width="1112" height="640">
-    `);
-
-  instance.show();
-  activeLightbox = instance;
+images.forEach((image) => {
+    const galleryItem = createGalleryItem(image);
+    gallery.appendChild(galleryItem);
+  });
+  
+  initializeLightbox();
 
 
   document.addEventListener('keydown', handleKeyPress);
-}
+
 
 function handleKeyPress(event) {
   if (event.key === 'Escape') {
