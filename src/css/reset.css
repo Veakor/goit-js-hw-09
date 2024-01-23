@@ -26,10 +26,60 @@ a {
 
 button {
   cursor: pointer;
+background:  #4E75FF;
+border-radius: 8px;
+padding: 8px, 16px, 8px, 16px;
+width: 95px;
 }
 
 img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+/* Общие стили для формы */
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  margin: auto;
+}
+
+/* Стили для каждого поля ввода и метки */
+label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+input,
+textarea {
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Стили для кнопки отправки формы */
+button {
+  padding: 10px;
+  background:  #4E75FF;
+  color: white;
+  border: none;
+  radius: 8px;
+  cursor: pointer;
+}
+button:hover {
+  background:  #6C8CFF;
+  ;
+}
+
+/* Стили для ссылки "Загрузить данные из localStorage" */
+.load-data-link {
+  margin-top: 20px;
+  text-align: center;
+  color: #3498db;
+  text-decoration: underline;
+  cursor: pointer;
 }
