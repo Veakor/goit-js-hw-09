@@ -91,7 +91,14 @@ function createGalleryItem({ preview, original, description }) {
   return galleryItem;
 }
 function initializeLightbox() {
-    const lightbox = new SimpleLightbox(".gallery a", { captionsData: "alt", captionDelay: 250 });
+  const lightbox = new SimpleLightbox(".gallery a", {
+    captionsData: "alt",
+    captionDelay: 250,
+  });
+  
+  lightbox.on("show.simplelightbox", () => {
+    activeLightbox = lightbox;
+  });
 }
 
 images.forEach((image) => {
@@ -102,7 +109,6 @@ images.forEach((image) => {
   initializeLightbox();
 
 
-  document.addEventListener('keydown', handleKeyPress);
 
 
 function handleKeyPress(event) {
@@ -116,15 +122,11 @@ function handleKeyPress(event) {
 }
 
 
-gallery.addEventListener('click', (event) => {
-  if (event.target.classList.contains('gallery-image')){
-    const source = event.target.dataset.source;
+gallery.addEventListener("click", (event) => {
+  if (event.target.classList.contains("gallery-image")) {
+    const source = event.target.getAttribute("src");
     const description = event.target.alt;
     openModal(source, description);
   }
 });
 
-images.forEach((image) => {
-  const galleryItem = createGalleryItem(image);
-  gallery.appendChild(galleryItem);
-});
