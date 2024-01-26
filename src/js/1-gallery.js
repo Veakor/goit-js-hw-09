@@ -1,6 +1,5 @@
 
 import SimpleLightbox from "simplelightbox";
-import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
 
 const images = [
     {
@@ -108,21 +107,10 @@ images.forEach((image) => {
   
   initializeLightbox();
 
-function handleKeyPress(event) {
-  if (event.key === 'Escape') {
-    activeLightbox.close();
-    activeLightbox = null;
-
-  
-    document.removeEventListener('keydown', handleKeyPress);
-  }
-}
-
 gallery.addEventListener("click", (event) => {
   if (event.target.classList.contains("gallery-image")) {
     const source = event.target.getAttribute("src");
     const description = event.target.alt;
-    openModal(source, description);
   }
 });
 
