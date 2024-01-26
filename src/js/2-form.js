@@ -1,5 +1,5 @@
 
-mport "simplelightbox/dist/simple-lightbox.min.css";
+import "simplelightbox/dist/simple-lightbox.min.css";
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.feedback-form');
   

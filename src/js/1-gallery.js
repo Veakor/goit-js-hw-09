@@ -1,6 +1,6 @@
 
 import SimpleLightbox from "simplelightbox";
-
+mport "simplelightbox/dist/simple-lightbox.min.css";
 const images = [
     {
       preview:
